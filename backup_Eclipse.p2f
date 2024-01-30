@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?p2f version='1.0.0'?>
+<p2f version='1.0.0'>
+  <ius size='30'>
+    <iu id='org.eclipse.buildship.feature.group' name='Buildship: Eclipse Plug-ins for Gradle' version='3.1.8.v20231117-1658'>
+      <repositories size='4'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.jdt.bcoview.feature.feature.group' name='Bytecode Outline View' version='1.2.200.v20231106-1537'>
+      <repositories size='6'>
+        <repository location='https://download.eclipse.org/eclipse/updates/latest'/>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/eclipse/updates/4.30'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.eclemma.feature.feature.group' name='EclEmma Java Code Coverage' version='3.1.8.202311140945'>
+      <repositories size='3'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='epp.package.java' name='Eclipse IDE for Java Developers' version='4.30.0.20231201-1200'>
+      <repositories size='4'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/technology/epp/packages/2023-12/202312011200'/>
+        <repository location='https://download.eclipse.org/technology/epp/packages/latest/'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.jdt.feature.group' name='Eclipse Java Development Tools' version='3.19.300.v20231201-0110'>
+      <repositories size='6'>
+        <repository location='https://download.eclipse.org/eclipse/updates/latest'/>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/eclipse/updates/4.30'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.platform.feature.group' name='Eclipse Platform' version='4.30.0.v20231201-0512'>
+      <repositories size='6'>
+        <repository location='https://download.eclipse.org/eclipse/updates/latest'/>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/eclipse/updates/4.30'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.rcp.feature.group' name='Eclipse RCP' version='4.30.0.v20231201-0512'>
+      <repositories size='6'>
+        <repository location='https://download.eclipse.org/eclipse/updates/latest'/>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/eclipse/updates/4.30'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.egit.feature.group' name='Git integration for Eclipse' version='6.8.0.202311291450-r'>
+      <repositories size='4'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.jgit.feature.group' name='Java implementation of Git' version='6.8.0.202311291450-r'>
+      <repositories size='4'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.justj.openjdk.hotspot.jre.full.feature.group' name='JustJ Adoptium OpenJDK Hotspot JRE Complete' version='17.0.9.v20231028-0858'>
+      <repositories size='1'>
+        <repository location='https://download.eclipse.org/justj/jres/latest'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.m2e.feature.feature.group' name='M2E - Maven Integration for Eclipse' version='2.4.200.20231119-0901'>
+      <repositories size='5'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/technology/m2e/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.m2e.lemminx.feature.feature.group' name='M2E - POM Editor using LemMinX language server (includes Incubating components)' version='2.0.6.20231113-2319'>
+      <repositories size='5'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/technology/m2e/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.m2e.logback.feature.feature.group' name='M2E - SLF4J over Logback Logging' version='2.2.1.20231113-2319'>
+      <repositories size='5'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/technology/m2e/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.epp.mpc.feature.group' name='Marketplace Client' version='1.10.2.v20231116-1812'>
+      <repositories size='4'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.mylyn.jenkins.feature.feature.group' name='Mylyn Builds Connector: Jenkins' version='4.1.0.v20231009-0014'>
+      <repositories size='3'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.mylyn.commons.activity.feature.feature.group' name='Mylyn Commons Activity' version='4.1.0.v20231009-0014'>
+      <repositories size='3'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.mylyn.ide.feature.feature.group' name='Mylyn Context Connector: Eclipse IDE' version='4.1.0.v20231009-0014'>
+      <repositories size='3'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.mylyn.jdt.feature.feature.group' name='Mylyn Context Connector: Java Development' version='4.1.0.v20231009-0014'>
+      <repositories size='3'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.mylyn.egit.feature.feature.group' name='Mylyn Git integration - Task focused interface' version='4.1.0.v20231009-0014'>
+      <repositories size='3'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.mylyn.reviews.feature.feature.group' name='Mylyn Reviews' version='4.1.0.v20231125-1125'>
+      <repositories size='3'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.mylyn.github.feature.feature.group' name='Mylyn Tasks Connector: GitHub' version='6.4.0.v20231125-1125'>
+      <repositories size='3'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.mylyn.git.feature.feature.group' name='Mylyn Versions Connector: Git' version='4.1.0.v20231125-1125'>
+      <repositories size='3'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.mylyn.wikitext_feature.feature.group' name='Mylyn WikiText' version='3.0.48.202308291007'>
+      <repositories size='4'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.oomph.setup.feature.group' name='Oomph Setup' version='1.30.0.v20231122-0734'>
+      <repositories size='4'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+        <repository location='https://download.eclipse.org/oomph/updates/milestone/latest'/>
+      </repositories>
+    </iu>
+    <iu id='org.springframework.tooling.boot.ls.feature.feature.group' name='Spring Boot Language Server Feature' version='4.21.0.202312011752'>
+      <repositories size='1'>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+      </repositories>
+    </iu>
+    <iu id='org.springframework.ide.eclipse.boot.dash.feature.feature.group' name='Spring IDE Boot Microservices Dash' version='4.21.0.202312011804'>
+      <repositories size='1'>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+      </repositories>
+    </iu>
+    <iu id='org.springframework.boot.ide.main.feature.feature.group' name='Spring Tool Suite 4 Main Feature' version='4.21.0.202312011804'>
+      <repositories size='1'>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.tips.feature.feature.group' name='Tip of the Day UI Feature' version='0.4.200.v20231106-1240'>
+      <repositories size='6'>
+        <repository location='https://download.eclipse.org/eclipse/updates/latest'/>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/eclipse/updates/4.30'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.tm.terminal.feature.feature.group' name='TM Terminal' version='11.4.0.202309142347'>
+      <repositories size='4'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.wildwebdeveloper.xml.feature.feature.group' name='Wild Web Developer XML tools' version='1.3.1.202310310352'>
+      <repositories size='5'>
+        <repository location='https://download.eclipse.org/releases/latest'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/202312061001'/>
+        <repository location='https://download.eclipse.org/wildwebdeveloper/releases/1.3.3'/>
+        <repository location='https://cdn.spring.io/spring-tools/release/TOOLS/sts4/update/e4.30/'/>
+        <repository location='https://download.eclipse.org/releases/2023-12/'/>
+      </repositories>
+    </iu>
+  </ius>
+</p2f>
