@@ -1,42 +1,73 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:mvc="http://www.springframework.org/schema/mvc"
-    xsi:schemaLocation="
-					        http://www.springframework.org/schema/beans 
-					        http://www.springframework.org/schema/beans/spring-beans.xsd
-					        http://www.springframework.org/schema/context
-                            https://www.springframework.org/schema/context/spring-context.xsd
-                            http://www.springframework.org/schema/mvc
-                            https://www.springframework.org/schema/mvc/spring-mvc.xsd
-                           ">
-     <context:component-scan base-package="xavr.todolist"/> 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
 
-    
-    <mvc:annotation-driven/>
-  
-
-
-</beans>
-
-<!--<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
-                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context                      
                            https://www.springframework.org/schema/context/spring-context.xsd
                            http://www.springframework.org/schema/mvc
-                           https://www.springframework.org/schema/mvc/spring-mvc.xsd
-                           ">
-   <context:component-scan base-package="xavr.todolist"/> 
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                           http://www.springframework.org/schema/data/jpa 
+   						   http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
+   						   http://www.springframework.org/schema/tx
+   						   http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<mvc:annotation-driven />
+	<context:component-scan base-package="xavr.todolist"/>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<context:component-scan base-package="xavr.todolist" />
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"/>
+
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+		<property name="prefix" value="/WEB-INF/view/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+  
+  <bean id="dataSource_mysql" class="org.springframework.jdbc.datasource.SingleConnectionDataSource"
+		destroy-method="close">
+	  <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/todolist" />
+		<property name="username" value="admin" />
+		<property name="password" value="admin" />
+	 	 <property name="suppressClose" value="true" />
+	</bean>
 
     
-    <mvc:annotation-driven/>
-  
+	 <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
+		  <property name="packagesToScan" value="xavr.todolist.domain" />
+			 <property name="dataSource" ref= "dataSource_mysql"/>
+		  <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+		  <property name="jpaProperties">
+		    	<props>
+	               <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+	                <prop key="hibernate.generate-ddl">true</prop>
+	                <prop key="hibernate.show_sql">true</prop>
+	                <prop key="hibernate.format_sql">true</prop>
+	                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>	                
+	            </props>
+		  </property>
+	 
+	</bean>
+	
+ 	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"> 	 						
+	 	  <property name="showSql" value="true"/>
+		  <property name="generateDdl" value="true"/> 
+	</bean>
 
+	<jpa:repositories base-package="xavr.todolist.repositories"
 
-</beans> -->
+					  entity-manager-factory-ref="entityManagerFactory"
+					  transaction-manager-ref="transactionManager"/>
+</beans>
+ 
