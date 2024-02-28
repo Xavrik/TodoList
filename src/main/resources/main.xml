@@ -55,7 +55,8 @@
 	                <prop key="hibernate.generate-ddl">true</prop>
 	                <prop key="hibernate.show_sql">true</prop>
 	                <prop key="hibernate.format_sql">true</prop>
-	                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>	                
+<!--	                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>	                -->
+					<prop key="hibernate.hbm2ddl.auto">update</prop>
 	            </props>
 		  </property>
 	 
@@ -70,9 +71,14 @@
 		<constructor-arg name="secretKey" value="SuperSecretKey"/>
 	</bean>
 
+
+
 	<jpa:repositories base-package="xavr.todolist.repositories"
 
 					  entity-manager-factory-ref="entityManagerFactory"
 					  transaction-manager-ref="transactionManager"/>
+
+
+
 </beans>
  
