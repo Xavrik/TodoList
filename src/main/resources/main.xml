@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xmlns:context="http://www.springframework.org/schema/context"
-	   xmlns:mvc="http://www.springframework.org/schema/mvc"
-	   xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-	   xmlns:p="http://www.springframework.org/schema/p"
-	   xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
 
-	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context                      
                            https://www.springframework.org/schema/context/spring-context.xsd
@@ -19,66 +18,76 @@
    						   http://www.springframework.org/schema/tx
    						   http://www.springframework.org/schema/tx/spring-tx-4.3.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
-	<mvc:annotation-driven />
-	<context:component-scan base-package="xavr.todolist"/>
-	<aop:aspectj-autoproxy/>
+    <mvc:annotation-driven/>
+    <context:component-scan base-package="xavr.todolist"/>
+    <aop:aspectj-autoproxy/>
 
-	<tx:annotation-driven transaction-manager="transactionManager" />
-	<context:component-scan base-package="xavr.todolist" />
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"/>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <context:component-scan base-package="xavr.todolist"/>
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"/>
 
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
-		<property name="prefix" value="/WEB-INF/view/" />
-		<property name="suffix" value=".jsp" />
+<!--    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+<!--        <property name="prefix" value="/WEB-INF/view/"/>-->
+<!--        <property name="suffix" value=".jsp"/>-->
+<!--    </bean>-->
+
+
+    <bean id="dataSource_mysql" class="org.springframework.jdbc.datasource.SingleConnectionDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url"
+                  value="jdbc:mysql://localhost:3306/todolist"/>
+        <property name="username" value="admin"/>
+        <property name="password" value="admin"/>
+        <property name="suppressClose" value="true"/>
+    </bean>
+
+
+    <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
+        <property name="packagesToScan" value="xavr.todolist.domain"/>
+        <property name="dataSource" ref="dataSource_mysql"/>
+        <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.generate-ddl">true</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <!--	                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>	                -->
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+
+    </bean>
+
+    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="showSql" value="true"/>
+        <property name="generateDdl" value="true"/>
+    </bean>
+
+    <bean id="tokenManager" class="xavr.todolist.security.TokenManager">
+        <constructor-arg name="secretKey" value="SuperSecretKey"/>
+    </bean>
+
+    <jpa:repositories base-package="xavr.todolist.repositories"
+
+                      entity-manager-factory-ref="entityManagerFactory"
+                      transaction-manager-ref="transactionManager"/>
+
+	<bean class="org.thymeleaf.spring6.view.ThymeleafViewResolver">
+		<property name="templateEngine" ref="templateEngine" />
 	</bean>
 
-
-  
-  <bean id="dataSource_mysql" class="org.springframework.jdbc.datasource.SingleConnectionDataSource"
-		destroy-method="close">
-	  <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="url"
-			value="jdbc:mysql://localhost:3306/todolist" />
-		<property name="username" value="admin" />
-		<property name="password" value="admin" />
-	 	 <property name="suppressClose" value="true" />
+	<bean id="templateResolver"
+		  class="org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver">
+		<property name="prefix" value="/WEB-INF/templates/" />
+		<property name="suffix" value=".html" />
 	</bean>
 
-    
-	 <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
-		  <property name="packagesToScan" value="xavr.todolist.domain" />
-			 <property name="dataSource" ref= "dataSource_mysql"/>
-		  <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
-		  <property name="jpaProperties">
-		    	<props>
-	               <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-	                <prop key="hibernate.generate-ddl">true</prop>
-	                <prop key="hibernate.show_sql">true</prop>
-	                <prop key="hibernate.format_sql">true</prop>
-<!--	                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>	                -->
-					<prop key="hibernate.hbm2ddl.auto">update</prop>
-	            </props>
-		  </property>
-	 
+	<bean id="templateEngine"
+		  class="org.thymeleaf.spring6.SpringTemplateEngine">
+		<property name="templateResolver" ref="templateResolver" />
 	</bean>
-	
- 	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"> 	 						
-	 	  <property name="showSql" value="true"/>
-		  <property name="generateDdl" value="true"/> 
-	</bean>
-
-	<bean  id="tokenManager" class="xavr.todolist.security.TokenManager">
-		<constructor-arg name="secretKey" value="SuperSecretKey"/>
-	</bean>
-
-
-
-	<jpa:repositories base-package="xavr.todolist.repositories"
-
-					  entity-manager-factory-ref="entityManagerFactory"
-					  transaction-manager-ref="transactionManager"/>
-
-
 
 </beans>
  

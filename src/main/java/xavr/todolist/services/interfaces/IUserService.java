@@ -13,6 +13,7 @@ public interface IUserService {
 	List<UserPojo> getAllUsers();
 	UserPojo updateUser(User user, long id);
 	String deleteUser(long id);
+	boolean userExists(String username);
 
 	
 	

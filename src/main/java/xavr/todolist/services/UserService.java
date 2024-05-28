@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import xavr.todolist.domain.Exceprions.CustomEmptyDataException;
@@ -14,7 +15,10 @@ import xavr.todolist.domain.User;
 import xavr.todolist.repositories.UserRepository;
 import xavr.todolist.services.interfaces.IUserService;
 import xavr.todolist.utilits.Converter;
+import xavr.todolist.domain.Role;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -31,16 +35,29 @@ public class UserService implements IUserService {
         this.converter = converter;
     }
 
+	@Override
+	@Transactional
+	public boolean userExists(String username) {
+		return userRepository.findByUsername(username).isPresent();
+	}
 
-    @Override
+
+
+	@Override
 	@Transactional
 	public UserPojo CreateUser(User user) {
+		if (user.getRoles() == null) {
+
+			user.setRoles(new HashSet<>(Arrays.asList(Role.USER)));
+		}
+
 		userRepository.save(user);
 		return converter.userToPojo(user);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
+	@PostAuthorize("returnObject.username == authentication.name")
 	public UserPojo getUser(long id) {
 		Optional<User> foundUser = userRepository.findById(id);
 		System.out.println("Clear " + foundUser);
